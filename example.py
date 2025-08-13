@@ -4,10 +4,8 @@ from helper_functions.benchmarks import generate_circ
 
 if __name__ == "__main__":
     logging.basicConfig(
-        level=logging.DEBUG,
+        level=logging.INFO,
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        filename="example.log",
-        filemode="w",
     )
     circuit_type = "supremacy"
     circuit_size = 16
@@ -30,6 +28,7 @@ if __name__ == "__main__":
         },
         verbose=True,
     )
+
     cutqc.cut()
     cutqc.evaluate(num_shots_fn=None)
     cutqc.build(mem_limit=32, recursion_depth=1)

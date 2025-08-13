@@ -11,9 +11,15 @@ However, with the rapid development of the various hardware vendors,
 CutQC is expected to achieve the advantage discussed in the paper over either quantum or classical platforms.
 
 ## Installation
+
+* Windows x64
 1. Make a Python 3.10 virtual environment:
 2. CutQC uses the [Gurobi](https://www.gurobi.com) solver. Obtain and install a Gurobi license.
 Follow the [instructions](https://support.gurobi.com/hc/en-us/articles/14799677517585-Getting-Started-with-Gurobi-Optimizer).
+```
+conda install -c gurobi gurobi=10.0.0
+```
+
 3. Install required packages:
 ```
 pip install -r requirements.txt
