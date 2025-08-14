@@ -16,6 +16,7 @@ def factor_int(n):
             break
         else:
             val -= 1
+    print('debug',val, co_val)
     return val, co_val
 
 

@@ -48,6 +48,7 @@ class RandomCircuit(object):
         #     entangled_circuit.depth()
         #     ))
         # print('num_targets = {}'.format(num_targets))
+
         return entangled_circuit, solution_states
 
     def generate_entangled(self):
