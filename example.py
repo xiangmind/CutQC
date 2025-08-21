@@ -12,8 +12,8 @@ if __name__ == "__main__":
     # "adder"
     # "regular"
 
-    CIRCUIT_TYPE = "supremacy"
-    NUM_QUBITS = 29
+    CIRCUIT_TYPE = "bv"
+    NUM_QUBITS = 22
 
     OUT_DIR = f"out/{CIRCUIT_TYPE}"
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -55,9 +55,9 @@ if __name__ == "__main__":
     for idx, subcircuit in enumerate(cutqc.cut_solution['subcircuits']):
         subcircuit.draw(output='mpl', filename=f'{OUT_DIR}/{CIRCUIT_NAME}-{idx}.png')
     
-    breakpoint()
+    # breakpoint()
     cutqc.evaluate(num_shots_fn=None)
-    cutqc.build(mem_limit=33, recursion_depth=1)
-    cutqc.verify() # 重构完整的量子态作为label很耗时
+    cutqc.build(mem_limit=20, recursion_depth=3) # 更快的速度：设置一个较小的 mem_limit。recursion_depth 控制了一个迭代优化的过程，用来弥补由较小 mem_limit 带来的精度损失。
+    # cutqc.verify() # 计算完整的量子态作为label很耗时
     logging.info(f"Cut: {cutqc.num_recursions} recursions.")
     logging.info(cutqc.approximation_bins)
